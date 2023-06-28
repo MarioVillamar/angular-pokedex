@@ -8,12 +8,11 @@ import { Component, OnInit,Input } from '@angular/core';
 export class CategoryCardComponent implements OnInit {
 
   @Input() 
-  pokemontype: any;
+  pokemonType: any;
   constructor() { }
 
   ngOnInit(): void {
-    console.log('pokemontype', JSON.stringify(this.pokemontype));
+    console.log('pokemonType', JSON.stringify(this.pokemonType));
   }
-
 
 }

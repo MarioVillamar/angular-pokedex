@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable,of,delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,7 @@ export class CategoryService {
     },
   ];
 
-  getPokemonCategories():any {
-    return this.categories;
+  getPokemonCategories():Observable<any> {
+    return of(this.categories).pipe(delay(5000));
   }
 }
