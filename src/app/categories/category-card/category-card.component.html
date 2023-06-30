@@ -1,9 +1,9 @@
 <mat-card class="pokemonType">
     <mat-card-header>
-        <mat-card-title>{{pokemonType.name}}</mat-card-title>
+        <mat-card-title>{{pokemonType.name | titlecase}}</mat-card-title>
       </mat-card-header>
-      <img  mat-card-image [src]=pokemonType.imageUrl alt="">
+      <img  mat-card-image [src]=imageUrl alt="">
       <mat-card-actions>
-        <button mat-button>Ver pokemones</button>
+        <button mat-button class="button">Ver pokemones</button>
       </mat-card-actions>
   </mat-card>

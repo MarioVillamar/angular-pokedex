@@ -21,9 +21,11 @@ export class CategoryListComponent implements OnInit ,OnDestroy{
     this.suscriberCategoryList = this.categoryService
       .getPokemonCategories()
       .subscribe({
-        next: (result) => (this.categoryList = result),
+        next: (result) => {
+          console.log(JSON.stringify(result));
+          this.categoryList = result.results;
+        },
       });
-    console.log(JSON.stringify(this.categoryList));
   }
   ngOnDestroy(): void {
     if(this.suscriberCategoryList){

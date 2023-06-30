@@ -9,10 +9,12 @@ export class CategoryCardComponent implements OnInit {
 
   @Input() 
   pokemonType: any;
+  imageUrl:String 
   constructor() { }
 
   ngOnInit(): void {
     console.log('pokemonType', JSON.stringify(this.pokemonType));
+    this.imageUrl = `https://ui-avatars.com/api/?font-size=0.33&size=300&name=${this.pokemonType.name}`;
   }
 
 }
