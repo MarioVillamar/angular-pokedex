@@ -1,0 +1,7 @@
+<mat-card class="pokemon-card">
+  <mat-card-header>
+    <mat-card-title class="pokemon-card__name">{{ pokemonName | titlecase }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="pokemon-card__image" [src]="pokemonImageUrl" [alt]="pokemonName" />
+  <mat-card-actions> </mat-card-actions>
+</mat-card>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable,of,delay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { environment as env } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -41,10 +41,10 @@ export class CategoryService {
   // ];
 
   getPokemonCategories():Observable<any> {
-    return this.http.get('https://pokeapi.co/api/v2/type');
+    return this.http.get(`${env.pokedexBaseUrl}/type`);
   }
  
   getPokemonsTypyes(id: number):Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/type/${id}`);
+    return this.http.get(`${env.pokedexBaseUrl}/type/${id}`);
   }
 }

@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class PokemonsListByTypeComponent implements OnInit {
 
   pokemonList:any;
-
+  
+  pokemmonIds: any[];
   constructor(private CategoryService : CategoryService
     ,private activateRouter: ActivatedRoute) {
    }
@@ -19,7 +20,14 @@ export class PokemonsListByTypeComponent implements OnInit {
     this.activateRouter.paramMap.subscribe((param)=>{
     let id = param.get('id');
     this.CategoryService.getPokemonsTypyes(Number(id)).subscribe({
-      next:(result)=> {this.pokemonList = result.pokemon}
+      next:(result)=> {
+        this.pokemonList = result.pokemon
+        this.pokemmonIds = [];
+        this.pokemonList.forEach((element:any) => {
+          this.pokemmonIds.push(element.pokemon.url.slice(0,-1).split('/').pop());
+        });
+      
+      }
     })
   });
   }
