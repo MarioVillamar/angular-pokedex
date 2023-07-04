@@ -26,6 +26,7 @@ export class CategoryListComponent implements OnInit ,OnDestroy{
           this.categoryList = result.results;
         },
       });
+    
   }
   ngOnDestroy(): void {
     if(this.suscriberCategoryList){

@@ -43,4 +43,8 @@ export class CategoryService {
   getPokemonCategories():Observable<any> {
     return this.http.get('https://pokeapi.co/api/v2/type');
   }
+ 
+  getPokemonsTypyes(id: number):Observable<any> {
+    return this.http.get(`https://pokeapi.co/api/v2/type/${id}`);
+  }
 }

@@ -4,6 +4,6 @@
       </mat-card-header>
       <img  mat-card-image [src]=imageUrl alt="">
       <mat-card-actions>
-        <button mat-button class="button">Ver pokemones</button>
+        <button mat-button class="button" [routerLink]="['/pokemon-list-by-type', categoryType]">Ver pokemones</button>
       </mat-card-actions>
   </mat-card>
