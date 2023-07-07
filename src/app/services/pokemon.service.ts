@@ -14,4 +14,7 @@ export class PokemonService {
     return this.httpClient.get(`${env.pokedexBaseUrl}/pokemon/${id}`);
   }
   
+  getPokemons():Observable<any>{
+    return this.httpClient.get(`${env.pokedexBaseUrl}/pokemon`);
+  }
 }

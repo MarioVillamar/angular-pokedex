@@ -16,6 +16,7 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonsModule } from './pokemons/pokemons.module';
+import { StatisticsModule } from './statistics/statistics.module';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, ObservableComponent, PageNotFoundComponent],
@@ -28,6 +29,7 @@ import { PokemonsModule } from './pokemons/pokemons.module';
     CategoriesModule,
     HttpClientModule,
     PokemonsModule,
+    StatisticsModule,
     RouterModule.forRoot([
       {
         path: 'category-list', component : CategoryListComponent

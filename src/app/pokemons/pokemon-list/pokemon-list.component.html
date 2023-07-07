@@ -1,1 +1,6 @@
-<p>pokemon-list works!</p>
+<mat-grid-list cols="3" rowHeight="500" *ngIf="pokemonsIds">
+    <mat-grid-tile *ngFor="let id of pokemonsIds">
+        <app-pokemon-detail [pokemonDatail]="id"></app-pokemon-detail>
+    </mat-grid-tile>
+  </mat-grid-list>
+
