@@ -7,12 +7,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import {MatCardModule} from '@angular/material/card';
+import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
 
 @NgModule({
   declarations: [
     PokemonListComponent,
     PokemonsListByTypeComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokemonFavoriteComponent
 
   ],
   imports: [

@@ -6,14 +6,14 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class StatisticsService {
-  private socket: any;
+  private socket$: any;
   public batleStatisticsMessage = new Subject<string>();
 
   constructor() {}
 
   public connect(): void {
-    this.socket = this.getNewWebSocket();
-    this.socket.subscribe({
+    this.socket$ = this.getNewWebSocket();
+    this.socket$.subscribe({
       next: (message: any) => {
         this.batleStatisticsMessage.next(JSON.stringify(message));
       },
@@ -21,10 +21,24 @@ export class StatisticsService {
   }
 
   private getNewWebSocket() {
-    return webSocket(env.pokeStatisticsUrl);
+    return webSocket({
+      url: env.pokeStatisticsUrl,
+      openObserver: {
+        next: () => {
+          console.log('Web socket connection ok');
+        },
+      },
+      closeObserver: {
+        next: () => {
+          console.log('Socket connection closed');
+          this.socket$ = undefined;
+          this.connect(); 
+        },
+      },
+    });
   }
 
-  close(){
-    this.socket.complete();
+  close() {
+    this.socket$.complete();
   }
 }
