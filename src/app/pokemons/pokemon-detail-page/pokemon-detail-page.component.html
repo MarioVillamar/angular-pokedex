@@ -1,0 +1,4 @@
+<ng-container *ngIf="pokemonData">
+    <img class="poke-img" [src]="pokemonData.sprites.front_default" [alt]="pokemonData.name" />
+    <button mat-button (click)="showDialog()">Agreagr Comentario</button>
+</ng-container>
