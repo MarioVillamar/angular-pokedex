@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-title>Registro</mat-card-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <input type="text" id="username" matInput formControlName="username" />
+          <mat-hint
+            *ngIf="
+              registerFormControls.username.invalid &&
+              (registerFormControls.username.dirty ||
+                registerFormControls.username.touched)
+            "
+          >
+  
+            <div *ngIf="registerFormControls.username.errors?.['required']">
+              Usuario requerido
+            </div>
+            <div *ngIf="registerFormControls.username.errors?.['minlength']">
+              Usuario debe tener al menos 5 caracteres
+            </div>
+            <div *ngIf="registerFormControls.username.errors?.['email']">
+              Debe ser un email valido
+            </div>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            id="password"
+            matInput
+            formControlName="password"
+          />
+          <mat-hint
+            *ngIf="
+              registerFormControls.password.invalid &&
+              (registerFormControls.password.dirty ||
+                registerFormControls.password.touched)
+            "
+          >
+            Contraseña requerida
+          </mat-hint>
+        </mat-form-field>
+
+      
+        
+        <mat-error *ngIf="error">
+          {{ error }}
+        </mat-error>
+    
+        <div class="button">
+          <button type="submit" mat-raised-button color="primary">Registrar</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>

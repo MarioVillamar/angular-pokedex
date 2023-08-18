@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Router, RouterModule } from '@angular/router';
-
+import { AuthGuard } from '../guards/auth.guard';
 @NgModule({
   declarations: [
     CategoryListComponent,
@@ -20,7 +20,7 @@ import { Router, RouterModule } from '@angular/router';
     MatButtonModule,
     MatProgressBarModule,
     RouterModule.forChild([
-      {path: 'category-list', component: CategoryListComponent},
+      {path: 'category-list', component: CategoryListComponent, canActivate: [AuthGuard]},
     ])
   ],
   exports: [

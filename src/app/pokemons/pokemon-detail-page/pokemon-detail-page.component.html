@@ -1,4 +1,11 @@
 <ng-container *ngIf="pokemonData">
-    <img class="poke-img" [src]="pokemonData.sprites.front_default" [alt]="pokemonData.name" />
-    <button mat-button (click)="showDialog()">Agreagr Comentario</button>
-</ng-container>
+    <img [src]="pokemonData.sprites.front_default" class="poke-image" />
+    <button mat-raised-button color="primary" (click)="showDialog()">
+      Agregar comentario
+    </button>
+  </ng-container>
+  <ng-container *ngIf="comments" class="comments">
+    <mat-card class="card" *ngFor="let comment of comments">
+      <mat-card-content>{{ comment.comment }}</mat-card-content>
+    </mat-card>
+  </ng-container>

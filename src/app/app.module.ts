@@ -21,6 +21,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { SecurityModule } from './security/security.module';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, ObservableComponent, PageNotFoundComponent],
   imports: [
@@ -35,6 +37,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     StatisticsModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    SecurityModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {
